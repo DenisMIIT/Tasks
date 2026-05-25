@@ -1,4 +1,5 @@
 #include "Triangle.h"
+#include <float.h>
 #include <cmath>
 
 void Triangle::checkTriangle(const Point A, const Point B, const Point C)
@@ -17,7 +18,7 @@ void Triangle::checkTriangle(const Point A, const Point B, const Point C)
     // Псевдоскалярное произведение: |AB_x * AC_y - AB_y * AC_x|
     double cross_product = fabs(AB.getX() * AC.getY() - AB.getY() * AC.getX());
 
-    if (cross_product <= 1e-9)
+    if (cross_product <= DBL_EPSILON)
     {
         cerr << "Точки лежат на одной прямой => не образуют треугольник!";
         exit(1);
