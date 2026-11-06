@@ -13,7 +13,7 @@
 
 /** @brief Checks search by registration number. */
 TEST(VehicleRegistryTests, FindsVehicleByRegistration) {
-    PassengerCar car("A123BC", "ENG1", "Lada", "Vesta", "White", Owner("Ivan", "Moscow"), 5);
+    const PassengerCar car("A123BC", "ENG1", "Lada", "Vesta", "White", Owner("Ivan", "Moscow"), 5);
     VehicleRegistry registry;
     registry.addVehicle(car);
     const Vehicle& found = registry.findByRegistration("A123BC");
@@ -24,7 +24,7 @@ TEST(VehicleRegistryTests, FindsVehicleByRegistration) {
 
 /** @brief Checks search for the current owner. */
 TEST(VehicleRegistryTests, FindsOwnerByRegistration) {
-    Truck truck("T100", "ENG2", "Kamaz", "5490", "Blue", Owner("Petr", "Tver"), 10000);
+    const Truck truck("T100", "ENG2", "Kamaz", "5490", "Blue", Owner("Petr", "Tver"), 10000);
     VehicleRegistry registry;
     registry.addVehicle(truck);
     const Owner owner = registry.findOwnerByRegistration("T100");
@@ -49,7 +49,7 @@ TEST(VehicleRegistryTests, FindsVehicleHistoryByEngine) {
 /** @brief Checks stolen vehicle selection. */
 TEST(VehicleRegistryTests, ListsStolenVehicles) {
     PassengerCar stolen("STOLEN", "E1", "Lada", "Vesta", "Black", Owner("A", "M"), 5);
-    Truck safe("SAFE", "E2", "Kamaz", "5320", "Blue", Owner("B", "T"), 5000);
+    const Truck safe("SAFE", "E2", "Kamaz", "5320", "Blue", Owner("B", "T"), 5000);
     stolen.setStolen(true);
     VehicleRegistry registry;
     registry.addVehicle(stolen);
@@ -95,9 +95,9 @@ TEST(VehicleRegistryTests, RanksStolenBrands) {
 
 /** @brief Checks duplicate registration and engine numbers. */
 TEST(VehicleRegistryTests, RejectsDuplicateNumbers) {
-    PassengerCar first("A", "E1", "Lada", "Vesta", "Red", Owner("A", "M"), 5);
-    Truck sameRegistration("A", "E2", "Kamaz", "Model", "Blue", Owner("B", "M"), 1000);
-    Truck sameEngine("B", "E1", "Kamaz", "Model", "Blue", Owner("B", "M"), 1000);
+    const PassengerCar first("A", "E1", "Lada", "Vesta", "Red", Owner("A", "M"), 5);
+    const Truck sameRegistration("A", "E2", "Kamaz", "Model", "Blue", Owner("B", "M"), 1000);
+    const Truck sameEngine("B", "E1", "Kamaz", "Model", "Blue", Owner("B", "M"), 1000);
     VehicleRegistry registry;
     registry.addVehicle(first);
     EXPECT_THROW(registry.addVehicle(sameRegistration), std::invalid_argument);

@@ -14,7 +14,7 @@ public:
      * @param date Date of the accident.
      * @param description Short text about the accident.
      */
-    Accident(Date date, std::string description);
+    Accident(const Date& date, const std::string& description);
 
     /**
      * @brief Returns the accident date.

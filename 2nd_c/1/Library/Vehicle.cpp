@@ -1,20 +1,20 @@
 #include "Vehicle.h"
 
 #include <stdexcept>
-#include <utility>
 
-Vehicle::Vehicle(std::string registrationNumber, std::string engineNumber,
-                 std::string brand, std::string model, std::string color,
-                 Owner owner)
-    : registrationNumber_(std::move(registrationNumber)),
-      engineNumber_(std::move(engineNumber)),
-      brand_(std::move(brand)),
-      model_(std::move(model)),
-      color_(std::move(color)),
-      owner_(std::move(owner)),
-      stolen_(false) {
-    if (registrationNumber_.empty() || engineNumber_.empty() ||
-        brand_.empty() || model_.empty() || color_.empty()) {
+Vehicle::Vehicle(const std::string& registrationNumber, const std::string& engineNumber,
+                 const std::string& brand, const std::string& model,
+                 const std::string& color, const Owner& owner)
+    : owner_(owner) {
+    this->registrationNumber_ = registrationNumber;
+    this->engineNumber_ = engineNumber;
+    this->brand_ = brand;
+    this->model_ = model;
+    this->color_ = color;
+    this->stolen_ = false;
+
+    if (this->registrationNumber_.empty() || this->engineNumber_.empty() ||
+        this->brand_.empty() || this->model_.empty() || this->color_.empty()) {
         throw std::invalid_argument("Vehicle fields cannot be empty");
     }
 }
@@ -60,10 +60,10 @@ void Vehicle::setStolen(const bool stolen) {
     stolen_ = stolen;
 }
 
-void Vehicle::addPreviousOwner(Owner owner) {
-    previousOwners_.push_back(std::move(owner));
+void Vehicle::addPreviousOwner(const Owner& owner) {
+    previousOwners_.push_back(owner);
 }
 
-void Vehicle::addAccident(Accident accident) {
-    accidents_.push_back(std::move(accident));
+void Vehicle::addAccident(const Accident& accident) {
+    accidents_.push_back(accident);
 }

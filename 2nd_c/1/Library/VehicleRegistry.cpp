@@ -51,7 +51,7 @@ std::vector<std::string> VehicleRegistry::getStolenRegistrationNumbers() const {
 }
 
 std::vector<std::string> VehicleRegistry::getAccidentRegistrationNumbers(
-    const Date start, const Date end) const {
+    const Date& start, const Date& end) const {
     if (end < start) {
         throw std::invalid_argument("The end date is before the start date");
     }

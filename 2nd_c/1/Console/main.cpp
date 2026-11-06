@@ -28,7 +28,7 @@ int main() {
         secondCar.addAccident(Accident(Date(2025, 6, 2), "Front door"));
         secondCar.setStolen(true);
 
-        Truck thirdCar("C345DE", "ENG-300", "Kamaz", "5490", "Blue",
+        const Truck thirdCar("C345DE", "ENG-300", "Kamaz", "5490", "Blue",
                        Owner("Oleg Smirnov", "Moscow"), 18000);
 
         const std::vector<std::reference_wrapper<const Vehicle>> vehicles{

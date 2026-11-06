@@ -20,9 +20,9 @@ public:
      * @param color Vehicle color.
      * @param owner Current vehicle owner.
      */
-    Vehicle(std::string registrationNumber, std::string engineNumber,
-            std::string brand, std::string model, std::string color,
-            Owner owner);
+    Vehicle(const std::string& registrationNumber, const std::string& engineNumber,
+            const std::string& brand, const std::string& model, const std::string& color,
+            const Owner& owner);
 
     /**
      * @brief Destroys a vehicle through its base class.
@@ -99,13 +99,13 @@ public:
      * @brief Adds a previous owner.
      * @param owner Owner to add.
      */
-    void addPreviousOwner(Owner owner);
+    void addPreviousOwner(const Owner& owner);
 
     /**
      * @brief Adds an accident record.
      * @param accident Accident to add.
      */
-    void addAccident(Accident accident);
+    void addAccident(const Accident& accident);
 
 private:
     std::string registrationNumber_;

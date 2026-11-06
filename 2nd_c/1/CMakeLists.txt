@@ -1,4 +1,6 @@
-cmake_minimum_required(VERSION 4.1)
+cmake_minimum_required(VERSION 3.16)
+project(GAI LANGUAGES CXX)
+include(CTest)
 add_subdirectory(Library)
 add_subdirectory(Console)
 if(BUILD_TESTING)

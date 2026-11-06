@@ -19,9 +19,9 @@ public:
      * @param owner Current car owner.
      * @param seats Number of seats.
      */
-    PassengerCar(std::string registrationNumber, std::string engineNumber,
-                 std::string brand, std::string model, std::string color,
-                 Owner owner, const int seats);
+    PassengerCar(const std::string& registrationNumber, const std::string& engineNumber,
+                 const std::string& brand, const std::string& model,
+                 const std::string& color, const Owner& owner, const int seats);
 
     /**
      * @brief Returns the vehicle type.

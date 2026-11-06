@@ -54,7 +54,7 @@ public:
      * @return List of registration numbers.
      */
     std::vector<std::string> getAccidentRegistrationNumbers(
-        const Date start, const Date end) const;
+        const Date& start, const Date& end) const;
 
     /**
      * @brief Ranks stolen vehicle brands by their number of stolen cars.

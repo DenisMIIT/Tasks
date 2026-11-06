@@ -19,9 +19,9 @@ public:
      * @param owner Current truck owner.
      * @param loadKilograms Maximum load in kilograms.
      */
-    Truck(std::string registrationNumber, std::string engineNumber,
-          std::string brand, std::string model, std::string color,
-          Owner owner, const int loadKilograms);
+    Truck(const std::string& registrationNumber, const std::string& engineNumber,
+          const std::string& brand, const std::string& model,
+          const std::string& color, const Owner& owner, const int loadKilograms);
 
     /**
      * @brief Returns the vehicle type.

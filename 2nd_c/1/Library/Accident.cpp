@@ -1,11 +1,11 @@
 #include "Accident.h"
 
 #include <stdexcept>
-#include <utility>
 
-Accident::Accident(Date date, std::string description)
-    : date_(std::move(date)), description_(std::move(description)) {
-    if (description_.empty()) {
+Accident::Accident(const Date& date, const std::string& description)
+    : date_(date) {
+    this->description_ = description;
+    if (this->description_.empty()) {
         throw std::invalid_argument("Accident description cannot be empty");
     }
 }

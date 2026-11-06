@@ -1,16 +1,14 @@
 #include "Truck.h"
 
 #include <stdexcept>
-#include <utility>
 
-Truck::Truck(std::string registrationNumber, std::string engineNumber,
-             std::string brand, std::string model, std::string color,
-             Owner owner, const int loadKilograms)
-    : Vehicle(std::move(registrationNumber), std::move(engineNumber),
-              std::move(brand), std::move(model), std::move(color),
-              std::move(owner)),
-      loadKilograms_(loadKilograms) {
-    if (loadKilograms_ < 1) {
+Truck::Truck(const std::string& registrationNumber,
+             const std::string& engineNumber, const std::string& brand,
+             const std::string& model, const std::string& color,
+             const Owner& owner, const int loadKilograms)
+    : Vehicle(registrationNumber, engineNumber, brand, model, color, owner) {
+    this->loadKilograms_ = loadKilograms;
+    if (this->loadKilograms_ < 1) {
         throw std::invalid_argument("Load must be positive");
     }
 }

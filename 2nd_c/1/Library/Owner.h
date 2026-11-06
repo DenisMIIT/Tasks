@@ -12,7 +12,7 @@ public:
      * @param fullName Full name of the owner.
      * @param address Address of the owner.
      */
-    Owner(std::string fullName, std::string address);
+    Owner(const std::string& fullName, const std::string& address);
 
     /**
      * @brief Returns the owner's full name.

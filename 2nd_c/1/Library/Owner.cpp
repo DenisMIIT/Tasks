@@ -1,11 +1,12 @@
 #include "Owner.h"
 
 #include <stdexcept>
-#include <utility>
 
-Owner::Owner(std::string fullName, std::string address)
-    : fullName_(std::move(fullName)), address_(std::move(address)) {
-    if (fullName_.empty() || address_.empty()) {
+Owner::Owner(const std::string& fullName, const std::string& address) {
+    this->fullName_ = fullName;
+    this->address_ = address;
+
+    if (this->fullName_.empty() || this->address_.empty()) {
         throw std::invalid_argument("Owner fields cannot be empty");
     }
 }
