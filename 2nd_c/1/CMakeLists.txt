@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 4.1)
+add_subdirectory(Library)
+add_subdirectory(Console)
+if(BUILD_TESTING)
+    add_subdirectory(Tests)
+endif()
